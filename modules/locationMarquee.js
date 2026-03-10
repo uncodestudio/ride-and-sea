@@ -6,8 +6,9 @@ export function init() {
     const content = marquee.firstElementChild
     if (!content) return
 
-    // Duplication pour boucle infinie
-    content.innerHTML += content.innerHTML
+    // Duplication pour boucle infinie (3x pour les grands écrans)
+    const original = content.innerHTML
+    content.innerHTML = original + original + original
 
     // Respect prefers-reduced-motion
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -17,9 +18,9 @@ export function init() {
     const speed = +marquee.dataset.speed || 15
 
     // Force GPU
-    gsap.set(content, { 
+    gsap.set(content, {
       force3D: true,
-      xPercent: isRight ? -50 : 0
+      xPercent: isRight ? -33.33 : 0
     })
 
     if (isRight) {
@@ -30,7 +31,7 @@ export function init() {
         ease: 'none',
         repeat: -1,
         modifiers: {
-          xPercent: gsap.utils.wrap(-50, 0)
+          xPercent: gsap.utils.wrap(-33.33, 0)
         }
       })
       marquee.onmouseenter = () => tl.pause()
@@ -38,12 +39,12 @@ export function init() {
     } else {
       // Gauche → Droite avec wrap seamless
       const tl = gsap.to(content, {
-        xPercent: -50,
+        xPercent: -33.33,
         duration: speed,
         ease: 'none',
         repeat: -1,
         modifiers: {
-          xPercent: gsap.utils.wrap(0, -50)
+          xPercent: gsap.utils.wrap(0, -33.33)
         }
       })
       marquee.onmouseenter = () => tl.pause()

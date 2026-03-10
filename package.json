@@ -1,8 +1,8 @@
 {
-  "name": "asap-work",
+  "name": "ride-and-sea",
   "version": "1.0.0",
   "type": "module",
-  "description": "ASAP.work - Webflow project",
+  "description": "Ride and Sea, Webflow project",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
