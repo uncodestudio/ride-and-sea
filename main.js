@@ -4,6 +4,8 @@ import { init as initTestimoniesVertical } from './modules/testimoniesVertical.j
 import { init as initFaqAccordion } from './modules/faqAccordion.js'
 import { init as initLoadingBar } from './modules/loadingBar.js'
 import { init as initMapParcours } from './modules/mapParcours.js'
+import { init as initStepsSlider } from './modules/stepsSlider.js'
+import { init as initSpotModal } from './modules/spotModal.js'
 
 console.log('🚀 Initialisation du site...')
 
@@ -27,6 +29,14 @@ const moduleDetectors = {
   mapParcours: {
     selector: '.map-parcours_content',
     initFn: initMapParcours
+  },
+  stepsSlider: {
+    selector: '.splide.is-steps',
+    initFn: initStepsSlider
+  },
+  spotModal: {
+    selector: '.spot_modal',
+    initFn: initSpotModal
   },
 }
 
